@@ -13,7 +13,6 @@ This project leverages the Gemini generative model for dynamic dialogue generati
 ai_cold_call_agent/
 ├── data/                     # Optional custom JSON scenario data
 ├── logs/                     # Conversation logs saved at runtime
-├── .env.example              # Environment variable placeholders
 ├── README.md                 # Project documentation and instructions
 ├── requirements.txt          # Python package dependencies
 ├── main.py                   # Main entry point for the application
@@ -57,13 +56,8 @@ Install the required Python packages using:
 pip install -r requirements.txt
 ```
 
-### 3. Configure Environment Variables
-Copy the provided .env.example file to .env:
-```bash
-cp .env.example .env
-```
-
-Open the .env file and replace YOUR_GEMINI_API_KEY_HERE with your actual Gemini API key.
+### 3. Configure API key
+Open the speech_processor.py  file and replace YOUR_GEMINI_API_KEY_HERE with your actual Gemini API key.
 Ensure other variables are set as needed:
 ```
 SPEECH_RECOGNITION_LANGUAGE=en-IN
