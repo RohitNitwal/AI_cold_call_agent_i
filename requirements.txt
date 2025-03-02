@@ -1,0 +1,6 @@
+python-dotenv
+SpeechRecognition
+gTTS
+pygame
+google-generativeai
+pyaudio
