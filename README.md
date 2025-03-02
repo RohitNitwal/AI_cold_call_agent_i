@@ -128,9 +128,4 @@ A demonstration video showcasing the agent in action is available here: [LOOM Vi
 - Additional TTS/STT options for improved Hinglish support.
 - Sentiment analysis and intent recognition modules.
 
-## Repository Access
-Ensure you have granted access to the repository for the following GitHub username:
-- rs@imax.co.in
 
-## Final Notes
-This project was developed within a 12-hour time frame. Please refer to the code comments for detailed explanations of the implementation. If you have any questions or need further assistance, feel free to reach out.
