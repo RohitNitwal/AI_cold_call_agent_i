@@ -105,9 +105,6 @@ python main.py
 
 This will launch the Tkinter GUI, where you can select a scenario, start the call, and interact with the agent.
 
-## Demonstration Video
-A demonstration video showcasing the agent in action is available here: [LOOM Video Link](#)
-(Replace with your actual video URL.)
 
 ## Completed Features
 - Integration of Gemini generative model for dynamic response generation.
