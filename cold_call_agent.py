@@ -88,15 +88,15 @@ class ColdCallAgent:
                         self.invoice_data.update(data["invoice"])
 
                 if self.log_callback:
-                    self.log_callback(f"✅ Loaded custom data for {self.scenario} scenario")
+                    self.log_callback(f"Loaded custom data for {self.scenario} scenario")
         except Exception as e:
             if self.log_callback:
-                self.log_callback(f"⚠️ Could not load scenario data: {str(e)}")
+                self.log_callback(f"Could not load scenario data: {str(e)}")
     
     def generate_response(self, user_input):
         """Generate AI response based on user input with context handling."""
         if self.log_callback:
-            self.log_callback("🤖 Thinking...")
+            self.log_callback("Thinking...")
         
         # Add user input to conversation history
         if user_input:
@@ -122,7 +122,7 @@ class ColdCallAgent:
         except Exception as e:
             error_msg = f"Error generating response: {str(e)}"
             if self.log_callback:
-                self.log_callback(f"❌ {error_msg}")
+                self.log_callback(f"{error_msg}")
             
             fallback_responses = {
                 "demo": "Aapka time dene ke liye dhanyavaad. Kya main aapko ERP demo ke baare mein kuch bata sakta hoon?",
@@ -240,6 +240,6 @@ Customer: {user_input}
         log_file = self.logger.save_log(metadata)
     
         if self.log_callback:
-            self.log_callback(f"📝 Conversation log saved to {log_file}")
+            self.log_callback(f"Conversation log saved to {log_file}")
         
         return log_file
