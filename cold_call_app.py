@@ -44,15 +44,15 @@ class ColdCallApp:
         button_frame = ttk.Frame(main_frame, padding="10")
         button_frame.pack(fill=tk.X)
         
-        self.start_button = ttk.Button(button_frame, text="📞 Start Call", 
+        self.start_button = ttk.Button(button_frame, text="Start Call", 
                                        command=self.start_call)
         self.start_button.pack(side=tk.LEFT, padx=5)
         
-        self.end_button = ttk.Button(button_frame, text="📴 End Call", 
+        self.end_button = ttk.Button(button_frame, text="End Call", 
                                      command=self.end_call, state=tk.DISABLED)
         self.end_button.pack(side=tk.LEFT, padx=5)
         
-        self.speak_button = ttk.Button(button_frame, text="🎤 Speak Now", 
+        self.speak_button = ttk.Button(button_frame, text="Speak Now", 
                                        command=self.manual_speak, state=tk.DISABLED)
         self.speak_button.pack(side=tk.LEFT, padx=5)
         
@@ -122,7 +122,7 @@ class ColdCallApp:
         self.start_button.config(state=tk.DISABLED)
         self.end_button.config(state=tk.NORMAL)
         self.speak_button.config(state=tk.NORMAL)
-        self.update_status("📞 Call Started! Say something...", "green")
+        self.update_status("Call Started! Say something...", "green")
         
         self.log_text.config(state=tk.NORMAL)
         self.log_text.delete(1.0, tk.END)
@@ -138,7 +138,7 @@ class ColdCallApp:
         }
         
         opening = opening_messages.get(scenario, "Namaste! Main Apki kaise help kar sakti hoon?")
-        self.log_message(f"🤖 AI: {opening}")
+        self.log_message(f"AI: {opening}")
         self.speech_processor.speak(opening, self.log_message)
         
         threading.Thread(target=self.conversation_loop, daemon=True).start()
@@ -187,7 +187,7 @@ class ColdCallApp:
             self.start_button.config(state=tk.NORMAL)
             self.end_button.config(state=tk.DISABLED)
             self.speak_button.config(state=tk.DISABLED)
-            self.update_status("📴 Call Ended. Thank you!", "red")
+            self.update_status("Call Ended. Thank you!", "red")
             
             if self.agent:
                 self.agent.end_conversation()
@@ -199,7 +199,7 @@ class ColdCallApp:
                 }
                 
                 closing = closing_messages.get(self.agent.scenario, "Dhanyavaad! Have a nice day!")
-                self.log_message(f"🤖 AI: {closing}")
+                self.log_message(f"AI: {closing}")
                 self.speech_processor.speak(closing, self.log_message)
                 
                 # Update Actionable Summary panel
