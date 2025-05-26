@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration variables - move API keys to .env
-GEMINI_API_KEY = "AIzaSyBdpQSa2WZO8ACzIkTXV3srbyZKyx6kQKU"
+GEMINI_API_KEY = "XXXXXXXXXXXXXXXXXXXXX"
 # Configure Gemini API
 genai.configure(api_key=GEMINI_API_KEY)
 
