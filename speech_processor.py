@@ -13,7 +13,7 @@ import google.generativeai as genai
 load_dotenv()
 
 # Configuration variables - move API keys to .env
-GEMINI_API_KEY = "AIzaSyBdpQSa2WZO8ACzIkTXV3srbyZKyx6kQKU"
+GEMINI_API_KEY = "XXXXXXXXXXXXXXXXXXXX"
 # Configure Gemini API
 genai.configure(api_key=GEMINI_API_KEY)
 
@@ -46,7 +46,7 @@ class SpeechProcessor:
         try:
             with sr.Microphone() as source:
                 if callback:
-                    callback("🎤 Listening...")
+                    callback("Listening...")
                 
                 # Adjust for ambient noise
                 self.recognizer.adjust_for_ambient_noise(source, duration=1)
@@ -57,7 +57,7 @@ class SpeechProcessor:
                 audio = self.recognizer.listen(source, timeout=timeout, phrase_time_limit=phrase_time_limit)
                 
             if callback:
-                callback("🔍 Processing speech...")
+                callback("Processing speech...")
                 
             try:
                 text = self.recognizer.recognize_google(audio, language=self.speech_language)
@@ -65,18 +65,18 @@ class SpeechProcessor:
                     callback(f"🗣 User: {text}")
             except sr.UnknownValueError:
                 if callback:
-                    callback("❌ Could not understand audio")
+                    callback("Could not understand audio")
             except sr.RequestError:
                 try:
                     text = self.recognizer.recognize_sphinx(audio)
                     if callback:
-                        callback(f"🗣 User: {text} (fallback)")
+                        callback(f"User: {text} (fallback)")
                 except Exception as e:
                     if callback:
-                        callback("❌ Speech recognition services unavailable")
+                        callback("Speech recognition services unavailable")
         except Exception as e:
             if callback:
-                callback(f"❌ Error: {str(e)}")
+                callback(f"Error: {str(e)}")
         
         self.is_listening = False
         return text.lower() if text else ""
@@ -89,7 +89,7 @@ class SpeechProcessor:
         try:
             cleaned_text = re.sub(r"[^\w\s.,!?-]", "", text)
             if callback:
-                callback(f"🤖 AI: {cleaned_text}")
+                callback(f"AI: {cleaned_text}")
             
             # Generate speech using gTTS
             tts = gTTS(text=cleaned_text, lang=self.tts_language, slow=False, tld=self.tts_tld)
@@ -109,4 +109,4 @@ class SpeechProcessor:
                 
         except Exception as e:
             if callback:
-                callback(f"❌ Error in speech synthesis: {str(e)}")
+                callback(f"Error in speech synthesis: {str(e)}")
